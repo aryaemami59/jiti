@@ -1,7 +1,7 @@
-import { join, resolve, dirname } from "node:path";
-import { x } from "tinyexec";
-import { describe, it, expect } from "vitest";
 import fg from "fast-glob";
+import { dirname, join, resolve } from "node:path";
+import { x } from "tinyexec";
+import { describe, expect, it } from "vitest";
 
 describe("fixtures", async () => {
   const jitiPath = resolve(__dirname, "../lib/jiti-cli.mjs");
@@ -65,6 +65,7 @@ describe("fixtures", async () => {
         expect(stderr).toBe("");
       }
 
+      console.log(stdout);
       expect(cleanUpSnap(stdout)).toMatchSnapshot("stdout");
     });
   }
